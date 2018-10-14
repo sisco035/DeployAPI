@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const productRoutes = require("./api/routes/products");
-const orderRoutes = require("./api/routes/orders");
 
 mongoose.connect(
   "mongodb://sisco035:" + process.env.DB_PASSWORD +"@testdb-shard-00-00-e4efi.mongodb.net:27017,testdb-shard-00-01-e4efi.mongodb.net:27017,testdb-shard-00-02-e4efi.mongodb.net:27017/test?ssl=true&replicaSet=TestDb-shard-0&authSource=admin&retryWrites=true",
@@ -35,7 +34,7 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use("/products", productRoutes);
-app.use("/orders", orderRoutes);
+
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
