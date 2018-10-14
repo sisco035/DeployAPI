@@ -1,13 +1,10 @@
-const express = require('express')
-//const http = require('http');
-const app = express();
 
-//const port = process.env.PORT || 4000;
+const http = require('http');
+const app = require('./app');
 
-//const server = http.createServer(app);
+const port = process.env.PORT || 4000;
 
-app.use(express.static('public'))
+const server = http.createServer(app);
 
-//server.listen(port);
 
-app.listen(process.env.PORT || 4000);
+server.listen(port);
